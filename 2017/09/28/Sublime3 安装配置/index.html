@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Sublime3 安装配置(Ubuntu16.04) | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="系统环境Ubuntu16.04  Sublime3安装官网下载地址: Sublime Text3 Download Sublime3官方提供的是永久使用版，要想获取完整版需要破解，下面是注册码获取地址: Sublime Text 3 3126 注册码 Sublime3环境配置 1、安装Package Control  Package Control是Sublime的插件包控制器，只有通过它才可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime3 安装配置(Ubuntu16.04)">
+<meta property="og:url" content="http://xionghaoo.github.io/2017/09/28/Sublime3 安装配置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="系统环境Ubuntu16.04  Sublime3安装官网下载地址: Sublime Text3 Download Sublime3官方提供的是永久使用版，要想获取完整版需要破解，下面是注册码获取地址: Sublime Text 3 3126 注册码 Sublime3环境配置 1、安装Package Control  Package Control是Sublime的插件包控制器，只有通过它才可以">
+<meta property="og:updated_time" content="2017-09-27T15:41:06.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime3 安装配置(Ubuntu16.04)">
+<meta name="twitter:description" content="系统环境Ubuntu16.04  Sublime3安装官网下载地址: Sublime Text3 Download Sublime3官方提供的是永久使用版，要想获取完整版需要破解，下面是注册码获取地址: Sublime Text 3 3126 注册码 Sublime3环境配置 1、安装Package Control  Package Control是Sublime的插件包控制器，只有通过它才可以">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">PPOffice</h2>
+            <h3 id="title">Web Developer &amp; Designer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Harbin, China</span>
+            <a id="follow" target="_blank" href="https://github.com/ppoffice/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                6
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>tag</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Sublime3 安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Sublime3 安装配置(Ubuntu16.04)
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/28/Sublime3 安装配置/">
+            <time datetime="2017-09-28T11:22:13.946Z" itemprop="datePublished">2017-09-28</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>系统环境Ubuntu16.04</p>
+</blockquote>
+<p></p><h1>Sublime3安装</h1><br>官网下载地址:<p></p>
+<p><a href="https://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text3 Download</a></p>
+<p>Sublime3官方提供的是永久使用版，要想获取完整版需要破解，下面是注册码获取地址:</p>
+<p><a href="https://fatesinger.com/78705" target="_blank" rel="external">Sublime Text 3 3126 注册码</a></p>
+<p></p><h2>Sublime3环境配置</h2><p></p>
+<p></p><h4>1、安装Package Control</h4><p></p>
+<blockquote>
+<p>Package Control是Sublime的插件包控制器，只有通过它才可以安装其他插件</p>
+</blockquote>
+<p>安装Package Control可以依照官网的教程:<a href="https://packagecontrol.io/installation" target="_blank" rel="external">https://packagecontrol.io/installation</a></p>
+<p><a href="https://packagecontrol.io/installation" target="_blank" rel="external">Package Control Install</a></p>
+<p>安装好Package Control之后应该可以看到Preferences选项下多出了一个Package Control，选择打开Package Control的面板。在里面输入Install Package。Sublime就开始寻找可用的插件包了。安装完成后我们就可以安装各种插件了。</p>
+<p>这里安装如果出现问题，请继续往下看，如果没有问题，可以跳过看第二点设置Sublime中文输入法。比如出现 There are no packages available for installation 的错误信息，这里我们要寻找下错误来源，打开设置里面的Debug开关。</p>
+<p>Preferences &gt; Package Settings &gt; Package Control &gt; Settings – User</p>
+<p>Settings-user file:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"bootstrapped"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">"debug"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">"http_proxy"</span>: <span class="string">"http://localhost:8123"</span>,</div><div class="line">  <span class="attr">"https_proxy"</span>: <span class="string">"https://localhost:8123"</span>,</div><div class="line">  <span class="attr">"in_process_packages"</span>:</div><div class="line">  [</div><div class="line">  ],</div><div class="line">  <span class="attr">"installed_packages"</span>:</div><div class="line">  [</div><div class="line">    <span class="string">"GBK Support"</span>,</div><div class="line">    <span class="string">"LiveReload"</span>,</div><div class="line">    <span class="string">"MarkdownEditing"</span>,</div><div class="line">    <span class="string">"OmniMarkupPreviewer"</span>,</div><div class="line">    <span class="string">"Package Control"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>设置debug为true之后，在sublime编辑窗口按ctrl + ~ 会弹出debug界面。如果出现类似下面这种错误。那么可能是需要设置代理，因为sublime.wbond.net网址需要翻墙才能访问。代理设置也是在上述Settings-user文件中，这里是http代理，如果你用的是shadowsocks sock5代理，那么需要进行转换，转换方法请参考: <a href="http://droidyue.com/blog/2016/04/04/set-shadowsocks-proxy-for-terminal/" target="_blank" rel="external">为终端设置Shadowsocks代理</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Package Control: Error downloading channel. URL error _ssl.c:480: </div><div class="line">error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol downloading https://sublime.wbond.net/repositories.json.</div><div class="line">error: Package Control: There are no packages available for installation.</div></pre></td></tr></table></figure>
+<p></p><h4>2、设置Sublime中文输入法</h4><p></p>
+<blockquote>
+<p>Sublime默认不支持Fcitx中文输入，无法在其编辑页面调出中文输入法<br></p>
+</blockquote>
+<ol>
+<li>更新系统到最新<br><br>sudo apt-get update &amp;&amp; sudo apt-get upgrade</li>
+<li>Clone github project<br><br>git clone <a href="https://github.com/lyfeyaj/sublime-text-imfix.git" target="_blank" rel="external">https://github.com/lyfeyaj/sublime-text-imfix.git</a></li>
+<li>运行脚本<br><br>cd sublime-text-imfix &amp;&amp; ./sublime-imfix</li>
+</ol>
+<p>运行完脚本后需要注销重新登录系统。</p>
+<p>参考链接 <a href="http://www.php2.cc/article-2503-1.html" target="_blank" rel="external">解决ubuntu16.04下的sublime text3不能使用Fcitx下的搜狗输入法的问题</a></p>
+<p></p><h4>3、设置Sublime字体</h4><br>选择 Preferences &gt; settings<p></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"color_scheme"</span>: <span class="string">"Packages/MarkdownEditing/MarkdownEditor-Focus.tmTheme"</span>,</div><div class="line">  <span class="attr">"font_face"</span>: <span class="string">"Inconsolata"</span>,</div><div class="line">  <span class="attr">"font_size"</span>: <span class="number">14</span>,</div><div class="line">  <span class="attr">"ignored_packages"</span>:</div><div class="line">  [</div><div class="line">    <span class="string">"Vintage"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"line_padding_bottom"</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">"line_padding_top"</span>: <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>字体最好选monospaced font，参考链接:<br><a href="https://webdesign.tutsplus.com/zh-hans/articles/simple-visual-enhancements-for-better-coding-in-sublime-text--webdesign-18052" target="_blank" rel="external">在Sublime Text里有助编码的简单视觉改善</a></p>
+<p></p><h2>参考资料</h2><br>在安装和配置好Sublime之后，就可以下载自己喜欢的插件了，我主要是用来写博客，所以暂时只安装了MarkDown相关的插件，下面有相关链接:<br><br><a href="http://cheng.logdown.com/posts/2015/06/30/sublime-text-3-markdown" target="_blank" rel="external">Sublime Text 3 Markdown</a><p></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://xionghaoo.github.io/2017/09/28/Sublime3 安装配置/" data-id="cj84dh6is0003ysuudigtkkpb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/09/28/MidPoint Circle Algorithm/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">中间点圆算法</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Sublime3 安装配置/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Sublime3 安装配置/" class="title">Sublime3 安装配置(Ubuntu16.04)</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.946Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/MidPoint Circle Algorithm/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/MidPoint Circle Algorithm/" class="title">中间点圆算法</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.927Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/hexo deploy to github/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/hexo deploy to github/" class="title">Windows平台部署Hexo到Github</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.922Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Dagger2 总结/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Dagger2 总结/" class="title">Dagger2</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.918Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Android Animation/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Android Animation/" class="title">Android动画</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.890Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Xiong Hao<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
