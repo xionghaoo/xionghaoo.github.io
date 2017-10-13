@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Android动画 | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="Google官方将动画分为三类，Property Animation、 View Animation、 Drawable Animation。前两个Android系统提供有相对应的动画框架，而Drawable Animation是你自己加载动画帧资源进行播放。这是针对单View动画，除了这些，Android还提供了一个Tansition的框架，它可以实现两个不同的View hierarchies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android动画">
+<meta property="og:url" content="http://xionghaoo.github.io/2017/09/28/Android Animation/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Google官方将动画分为三类，Property Animation、 View Animation、 Drawable Animation。前两个Android系统提供有相对应的动画框架，而Drawable Animation是你自己加载动画帧资源进行播放。这是针对单View动画，除了这些，Android还提供了一个Tansition的框架，它可以实现两个不同的View hierarchies">
+<meta property="og:updated_time" content="2017-09-27T15:30:34.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android动画">
+<meta name="twitter:description" content="Google官方将动画分为三类，Property Animation、 View Animation、 Drawable Animation。前两个Android系统提供有相对应的动画框架，而Drawable Animation是你自己加载动画帧资源进行播放。这是针对单View动画，除了这些，Android还提供了一个Tansition的框架，它可以实现两个不同的View hierarchies">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'categories',
+            TAGS: 'etiquetes',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Android Animation" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Android动画
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/28/Android Animation/" class="article-date">
+            <time datetime="2017-09-28T11:22:13.890Z" itemprop="datePublished">2017-09-28</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>Google官方将动画分为三类，Property Animation、 View Animation、 Drawable Animation。前两个Android系统提供有相对应的动画框架，而Drawable Animation是你自己加载动画帧资源进行播放。这是针对单View动画，除了这些，Android还提供了一个Tansition的框架，它可以实现两个不同的View hierarchies之间转换，从而产生动画。5.0还引入的一些新的动画，比如Reveal Animation，Activity/Fragment之间的SharedElementAnimation。还有一种Physics-based Animation，这种动画遵循物理规律。</p>
+</blockquote>
+<p>通常我们实现动画效果会通过两种方式，Java代码和XML动画文件。</p>
+<p>下面介绍四大类动画 Property Animation、 View Animation、 Transition Aniamtion、Physics-based Animation.</p>
+<p></p><h1>关键数值</h1><p></p>
+<blockquote>
+<p>在介绍动画之前，需要先了解与动画有关的几个关键数值。</p>
+</blockquote>
+<ol>
+<li>View的getTop(), getLeft()</li>
+<li>translateX, translateY, 这两个是View移动后的相对数值。</li>
+<li>pivotX, pivotY, 这俩默认是View的中心，也是动画的中心点</li>
+</ol>
+<p></p><h1>Property Animation</h1><p></p>
+<blockquote>
+<p>属性动画，会实际修改View的属性</p>
+</blockquote>
+<p></p><h3>原理</h3><br><a href="https://developer.android.com/guide/topics/graphics/prop-animation.html" target="_blank" rel="external">Property Animation 原理官方说明</a><p></p>
+<p>上面是官方给的原理说明，里面有几个比较重要的概念</p>
+<ol>
+<li>ValueAnimator， The ValueAnimator object keeps track of your animation’s timing, such as how long the animation has been running, and the current value of the property that it is animating. 跟踪动画的时间。</li>
+<li>TypeEvaluator， defines how to calculate values for the property being animated. 它定义了如何计算在特定时间点的属性值。</li>
+<li>TimeInterpolator，时间插补器。</li>
+</ol>
+<p></p><h3>Path</h3><p></p>
+<blockquote>
+<p>运动路径， 可以是直线或曲线，直线比较简单，这里就不做介绍了，曲线一般为Beizer(贝塞尔)曲线，在Transition动画中也有Bezier曲线，不过是xml文件中通过arcMotion指定，由系统自动生成。属性动画中常用到Path对象。</p>
+</blockquote>
+<p><a href="https://github.com/saulmm/Curved-Fab-Reveal-Example" target="_blank" rel="external">github demo - Curved-Fab-Reveal-Example</a></p>
+<p>Bezier曲线的计算公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x = (1–t)^3*P0 + 3(1–t)^2*t*P1 + 3(1–t)t^2*P2 + t^3*P3 </div><div class="line">y = (1–t)^3*P0 + 3(1–t)^2*t*P1 + 3(1–t)t^2*P2 + t^3*P3</div></pre></td></tr></table></figure></p>
+<p>其中P0表示起点，P3表示终点，P1表示控制点1，P2表示控制点2</p>
+<p></p><h3>ObjectAniamtor</h3><p></p>
+<blockquote>
+<p>对View的属性产生动画</p>
+</blockquote>
+<p></p><h3>ViewPropertyAnimator</h3><p></p>
+<blockquote>
+<p>便利的动画制作器</p>
+</blockquote>
+<p>可以通过<a href="https://developer.android.com/reference/android/view/View.html" target="_blank" rel="external">View.animate()</a>方法获得</p>
+<p></p><h1>View Animation</h1><p></p>
+<blockquote>
+<p>不会对View的属性做出实际的修改</p>
+</blockquote>
+<p></p><h1>Transition Animation</h1><p></p>
+<blockquote>
+<p>通过Transition框架实现的动画</p>
+</blockquote>
+<p>github上Transition Animation的Demo <a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="external">github - Material Animation</a></p>
+<p></p><h3>SharedElementAniamtion</h3><p></p>
+<blockquote>
+<p>共享元素动画，关键类</p>
+</blockquote>
+<p><a href="http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html" target="_blank" rel="external">blog - SharedElementAnimation</a></p>
+<p></p><h3>Reveal Animation</h3><p></p>
+<blockquote>
+<p>圆形揭示动画</p>
+</blockquote>
+<p>创建方法<br><a href="https://developer.android.com/reference/android/view/ViewAnimationUtils.html" target="_blank" rel="external">ViewAnimationUtils.createCircularReveal()</a></p>
+<p></p><h3>Scene Animation</h3><p></p>
+<blockquote>
+<p>场景动画</p>
+</blockquote>
+<p>关键类: TansitionManager</p>
+<p></p><h1>Physics-based Animation</h1><p></p>
+<blockquote>
+<p>基于物理规律的动画</p>
+</blockquote>
+<p><a href="https://developer.android.com/guide/topics/graphics/physics-based-animation.html" target="_blank" rel="external">Physics-based Animation</a></p>
+<p></p><h1>Animation Resources</h1><p></p>
+<blockquote>
+<p>动画资源，使用Xml文件实现动画 </p>
+</blockquote>
+<p><a href="https://developer.android.com/guide/topics/resources/animation-resource.html" target="_blank" rel="external">Animation Resources</a></p>
+<h2>Interpolator</h2>
+
+<blockquote>
+<p>Android自带的动画插补器</p>
+</blockquote>
+<ul>
+<li>accelerate_cubic 三次</li>
+<li>accelerate_decelerate 加减速</li>
+<li>accelerate_quad 四次</li>
+<li>accelerate_quint 五次</li>
+<li>anticipate 开始向后，然后迅速向前</li>
+<li>anticipate_overshoot 开始向后，然后迅速向前，冲过一点，然后返回到最终位置</li>
+<li>bounce 在终点弹性变化</li>
+<li>cycle 圆形轨迹播放动画</li>
+<li>decelerate_cubic 三次方减速</li>
+<li>decelerate_quad 四次减速</li>
+<li>decelerate_quint 五次减速</li>
+<li>fast_out_linear_in 迅速加速并保持</li>
+<li>fast_out_slow_in 迅速加速但是缓慢减速</li>
+<li>linear 变化量为常数</li>
+<li>linear_out_slow_in 以一个非0速度缓慢减速</li>
+<li>overshoot 迅速向前，冲过一点然后返回。</li>
+</ul>
+<h2>Duration Constant</h2>
+
+<blockquote>
+<p>动画常用的持续时间</p>
+</blockquote>
+<ul>
+<li>R.integer.config_longAnimTime </li>
+<li>R.integer.config_mediumAnimTime</li>
+<li>R.integer.config_shortAnimTime</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://xionghaoo.github.io/2017/09/28/Android Animation/" data-id="cj8puqlxq0000dkuu9c39u3dj" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/28/Dagger2 总结/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            Dagger2
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/GreenDao数据库Upgrade/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/GreenDao数据库Upgrade/" class="title">GreenDao数据库升级</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T12:11:16.082Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Sublime3 安装配置/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Sublime3 安装配置/" class="title">Sublime3 安装配置(Ubuntu16.04)</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.946Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/MidPoint Circle Algorithm/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg)" alt="中间点圆算法" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/MidPoint Circle Algorithm/" class="title">中间点圆算法</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.927Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/hexo deploy to github/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/img-ssh-key.PNG)" alt="Windows平台部署Hexo到Github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/hexo deploy to github/" class="title">Windows平台部署Hexo到Github</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.922Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Dagger2 总结/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Dagger2 总结/" class="title">Dagger2</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.918Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">arxius</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Xiong Hao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xionghaoo.github.io/2017/09/28/Android Animation/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

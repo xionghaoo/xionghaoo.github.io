@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>中间点圆算法 | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="中间点圆算法是计算机绘制圆形的一种算法。下面是一个实际的Demo。 中间点算法画圆github - MidPointCircleExplained 原理计算机画圆必须以像素为单位，因此不能直接使用圆的公式x^2 + y^2 = r^2。x和y必须为整数，如下图，设图中的圆点坐标都为整数，圆的轨迹落在两个点S和T之间，这时候计算机在绘制圆的路径时，必须选择S或T其中一个点作为绘制点。那计算机会选择哪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中间点圆算法">
+<meta property="og:url" content="http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="中间点圆算法是计算机绘制圆形的一种算法。下面是一个实际的Demo。 中间点算法画圆github - MidPointCircleExplained 原理计算机画圆必须以像素为单位，因此不能直接使用圆的公式x^2 + y^2 = r^2。x和y必须为整数，如下图，设图中的圆点坐标都为整数，圆的轨迹落在两个点S和T之间，这时候计算机在绘制圆的路径时，必须选择S或T其中一个点作为绘制点。那计算机会选择哪">
+<meta property="og:image" content="https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg">
+<meta property="og:updated_time" content="2017-09-27T15:33:41.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="中间点圆算法">
+<meta name="twitter:description" content="中间点圆算法是计算机绘制圆形的一种算法。下面是一个实际的Demo。 中间点算法画圆github - MidPointCircleExplained 原理计算机画圆必须以像素为单位，因此不能直接使用圆的公式x^2 + y^2 = r^2。x和y必须为整数，如下图，设图中的圆点坐标都为整数，圆的轨迹落在两个点S和T之间，这时候计算机在绘制圆的路径时，必须选择S或T其中一个点作为绘制点。那计算机会选择哪">
+<meta name="twitter:image" content="https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'categories',
+            TAGS: 'etiquetes',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-MidPoint Circle Algorithm" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        中间点圆算法
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/28/MidPoint Circle Algorithm/" class="article-date">
+            <time datetime="2017-09-28T11:22:13.927Z" itemprop="datePublished">2017-09-28</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>中间点圆算法是计算机绘制圆形的一种算法。下面是一个实际的Demo。</p>
+<p><a href="https://github.com/danylovolokh/MidPointCircleExplained" target="_blank" rel="external">中间点算法画圆github - MidPointCircleExplained</a></p>
+<p></p><h1>原理</h1><br>计算机画圆必须以像素为单位，因此不能直接使用圆的公式x^2 + y^2 = r^2。x和y必须为整数，如下图，设图中的圆点坐标都为整数，圆的轨迹落在两个点S和T之间，这时候计算机在绘制圆的路径时，必须选择S或T其中一个点作为绘制点。那计算机会选择哪个点呢？这时计算机会计算这两个点相对圆心的距离与圆的半径的误差。选择误差小的作为绘制点。<p></p>
+<p>如何判断这种误差呢？我们选择S和T的中点记为M(x1 - 1/2, y1 + 1)。现在只需要判断M点与圆的位置关系就可以了，如果M点在圆内或圆上，那么选S点，反之，如果M点在圆外，那么选T点。我称M点为点(x1, y1)的决策点。<br></p>
+<p>设点(0, r)为计算起点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(x0, y0) = (0, r)</div></pre></td></tr></table></figure></p>
+<p>下面我们通过公式找出决策点与实际选取点之间的关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f(x, y) = x^2 + y^2 - r^2 = 0</div><div class="line"></div><div class="line">f(xi - 1/2 + e, yi + 1)</div><div class="line">        = (xi - 1/2 + e)^2 + (yi + 1)^2 - r^2 </div><div class="line">        = (xi- 1/2)^2 + (yi + 1)^2 - r2 + 2(xi - 1/2)e + e^2</div><div class="line">        = f(xi - 1/2, yi + 1) + 2(xi - 1/2)e + e^2 = 0</div></pre></td></tr></table></figure></p>
+<p><img src="https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg" alt="circle_path"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">设 di = f(xi - 1/2, yi + 1) = -2(xi - 1/2)e - e^2</div><div class="line">因此,</div><div class="line"></div><div class="line">如果 e &lt; 0 那么 di &gt; 0 因此选取点 S = (xi - 1, yi + 1).</div><div class="line">di+1 = f(xi - 1 - 1/2, yi + 1 + 1) = ((xi - 1/2) - 1)^2 + ((yi + 1) + 1)^2 - r^2</div><div class="line">     = di - 2(xi - 1) + 2(yi + 1) + 1</div><div class="line">     = di + 2(yi + 1 - xi + 1) + 1</div><div class="line">          </div><div class="line">如果 e &gt;= 0 那么 di &lt;= 0 因此选取点 T = (xi, yi + 1)</div><div class="line">   di+1 = f(xi - 1/2, yi + 1 + 1)</div><div class="line">       = di + 2yi+1 + 1</div><div class="line">          </div><div class="line">di的初始值为</div><div class="line">   d0 = f(r - 1/2, 0 + 1) = (r - 1/2)2 + 12 - r2</div><div class="line">      = 5/4 - r &#123;如果r为整数，这里也可以用1 - r&#125;</div><div class="line">        </div><div class="line">当选择点 S = (xi - 1, yi + 1) 时</div><div class="line">   di+1 = di + -2xi+1 + 2yi+1 + 1</div><div class="line">    </div><div class="line">当选择点 T = (xi, yi + 1) 时</div><div class="line">   di+1 = di + 2yi+1 + 1</div></pre></td></tr></table></figure>
+<p>这里称di为决策点半径误差，我们通过di来判断绘制圆时实际选取的点，这里以上面的S和T点为例，如果di &gt; 0，说明e &lt; 0，曲线在中点M的左边，因此应该选择S点，反之应选择T点。</p>
+<p>通过上述推导，我们已经得出di+1与di之间的关系，因此只需要设置一个初始决策点误差，就可计算出之后所有的决策点误差。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createCirclePoints</span><span class="params">(<span class="keyword">int</span> x0, <span class="keyword">int</span> y0, <span class="keyword">int</span> radius)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> x = radius;</div><div class="line">    <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">    <span class="comment">//起始决策点的半径误差值 d0 = f(x - 1/2, y + 1) = (r - 1/2)^2 + (0 + 1)^2 - r^2 = 5/4 - r</span></div><div class="line">    <span class="comment">//这里r是整数， 所以可以用1 - x替代</span></div><div class="line">    <span class="keyword">int</span> decisionOver2 = <span class="number">1</span> - x;   <span class="comment">// Decision criterion divided by 2 evaluated at x=r, y=0</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>( y &lt;= x )</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//只需要绘制八分之一个象限，其他象限可以根据圆的对称性得出</span></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(x + x0, y + y0, mPaintBlack)); <span class="comment">// Octant 1</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(y + x0, x + y0, mPaintBlue));<span class="comment">// Octant 2</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(-x + x0, y + y0, mPaintCyan));<span class="comment">// Octant 4</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(-y + x0, x + y0, mPaintDarkGrey));<span class="comment">// Octant 3</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(-x + x0, -y + y0, mPaintGreen));<span class="comment">// Octant 5</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(-y + x0, -x + y0, mPaintMagenta));<span class="comment">// Octant 6</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(x + x0, -y + y0, mPaintRed));<span class="comment">// Octant 8</span></div><div class="line"></div><div class="line">        mMidPointCircleDiagram.addPoint(<span class="keyword">new</span> Point(y + x0, -x + y0, mPaintYellow));<span class="comment">// Octant 7</span></div><div class="line"></div><div class="line">        y++;</div><div class="line">        <span class="keyword">if</span> (decisionOver2&lt;=<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//下一个决策点的半径误差值，这里是y -&gt; y+1</span></div><div class="line">            decisionOver2 += <span class="number">2</span> * y + <span class="number">1</span>;   <span class="comment">// Change in decision criterion for y -&gt; y+1</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            x--;</div><div class="line">            <span class="comment">//下一个决策点的半径误差值，这里是y -&gt; y+1，x -&gt; x+1</span></div><div class="line">            decisionOver2 += <span class="number">2</span> * (y - x) + <span class="number">1</span>;   <span class="comment">// Change for y -&gt; y+1, x -&gt; x-1</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p></p><h1>参考文章</h1><br><a href="https://www.tutorialspoint.com/computer_graphics/circle_generation_algorithm.htm" target="_blank" rel="external">Computer Graphics Tutorial - Circle Generation Algorithm</a><p></p>
+<p><a href="https://en.wikipedia.org/wiki/Midpoint_circle_algorithm" target="_blank" rel="external">wikipedia - Midpoint circle algorithm</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/" data-id="cj8puqly80003dkuu5xjelzy4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/28/Sublime3 安装配置/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            Sublime3 安装配置(Ubuntu16.04)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/28/hexo deploy to github/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">Windows平台部署Hexo到Github</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/GreenDao数据库Upgrade/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/GreenDao数据库Upgrade/" class="title">GreenDao数据库升级</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T12:11:16.082Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Sublime3 安装配置/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Sublime3 安装配置/" class="title">Sublime3 安装配置(Ubuntu16.04)</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.946Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/MidPoint Circle Algorithm/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg)" alt="中间点圆算法" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/MidPoint Circle Algorithm/" class="title">中间点圆算法</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.927Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/hexo deploy to github/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/img-ssh-key.PNG)" alt="Windows平台部署Hexo到Github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/hexo deploy to github/" class="title">Windows平台部署Hexo到Github</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.922Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/28/Dagger2 总结/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/09/28/Dagger2 总结/" class="title">Dagger2</a></p>
+                            <p class="item-date"><time datetime="2017-09-28T11:22:13.918Z" itemprop="datePublished">2017-09-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">arxius</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Xiong Hao</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
