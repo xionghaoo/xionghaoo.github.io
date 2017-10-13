@@ -15,6 +15,7 @@
 <meta property="og:url" content="http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/index.html">
 <meta property="og:site_name" content="Xiong Hao&#39;s Notes">
 <meta property="og:description" content="中间点圆算法是计算机绘制圆形的一种算法。下面是一个实际的Demo。 中间点算法画圆github - MidPointCircleExplained 原理计算机画圆必须以像素为单位，因此不能直接使用圆的公式x^2 + y^2 = r^2。x和y必须为整数，如下图，设图中的圆点坐标都为整数，圆的轨迹落在两个点S和T之间，这时候计算机在绘制圆的路径时，必须选择S或T其中一个点作为绘制点。那计算机会选择哪">
+<meta property="og:locale" content="zh-ch">
 <meta property="og:image" content="https://www.tutorialspoint.com/computer_graphics/images/midpoint_algorithm.jpg">
 <meta property="og:updated_time" content="2017-09-27T15:33:41.634Z">
 <meta name="twitter:card" content="summary">
@@ -60,6 +61,10 @@
                         <a href="/" class="logo"></a>
                     </h1>
                     
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">be a geek</p>
+                        </h2>
+                    
                 </div>
                 <div id="header-inner" class="nav-container">
                     <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
@@ -67,13 +72,13 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                    <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Android/">Android</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
                                 </li>
                             
                         </ul>
@@ -81,7 +86,7 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -102,8 +107,8 @@
         TRANSLATION: {
             POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'categories',
-            TAGS: 'etiquetes',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -129,7 +134,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Sense categoria
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
@@ -180,7 +185,7 @@
 
 
 
-    <a data-url="http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/" data-id="cj8pv0jqc00038wuulrd05lst" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://xionghaoo.github.io/2017/09/28/MidPoint Circle Algorithm/" data-id="cj8q1tunk0005lwuuhmo05ds1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -260,7 +265,7 @@
                     <aside id="sidebar">
     <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
     <div class="sidebar-top">
-        <p>seguir:</p>
+        <p>follow:</p>
         <ul class="social-links">
             
                 
@@ -289,7 +294,7 @@
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                    <a class="social-tooltip" title="github" href="https://github.com/xionghaoo" target="_blank">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
@@ -318,7 +323,7 @@
 <nav id="article-nav">
     
         <a href="/2017/09/28/Sublime3 安装配置/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">més nou</strong>
+        <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
             Sublime3 安装配置(Ubuntu16.04)
@@ -329,7 +334,7 @@
     
     
         <a href="/2017/09/28/hexo deploy to github/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">antic</strong>
+        <strong class="article-nav-caption">older</strong>
         <p class="article-nav-title">Windows平台部署Hexo到Github</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
@@ -452,11 +457,18 @@
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">arxius</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">7</span></li></ul>
         </div>

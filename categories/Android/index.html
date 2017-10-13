@@ -3,23 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Dagger2 | Xiong Hao&#39;s Notes</title>
+    <title>Category: Android | Xiong Hao&#39;s Notes</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
-    
-    <meta name="description" content="注解类型@Component可以对接口和抽象类进行注解，Dagger2框架根据注解的类名生成实体的类，新生成的类名是在原类名前加上前缀Dagger。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Dagger2">
-<meta property="og:url" content="http://xionghaoo.github.io/2017/09/28/Dagger2 总结/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Xiong Hao&#39;s Notes">
+<meta property="og:url" content="http://xionghaoo.github.io/categories/Android/index.html">
 <meta property="og:site_name" content="Xiong Hao&#39;s Notes">
-<meta property="og:description" content="注解类型@Component可以对接口和抽象类进行注解，Dagger2框架根据注解的类名生成实体的类，新生成的类名是在原类名前加上前缀Dagger。">
 <meta property="og:locale" content="zh-ch">
-<meta property="og:updated_time" content="2017-09-27T15:34:47.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dagger2">
-<meta name="twitter:description" content="注解类型@Component可以对接口和抽象类进行注解，Dagger2框架根据注解的类名生成实体的类，新生成的类名是在原类名前加上前缀Dagger。">
+<meta name="twitter:title" content="Xiong Hao&#39;s Notes">
     
 
     
@@ -132,118 +126,75 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">Android</em>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Dagger2 总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2017/09/28/Android Animation/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xionghaoo.github.io/2017/09/28/Android Animation/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Android/">Android</a>
+            </div>
+            <div class="date"><time datetime="2017-09-28T11:22:13.890Z" itemprop="datePublished">2017-09-28</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Dagger2
+        <a href="/2017/09/28/Android Animation/">Android动画</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2017/09/28/Dagger2 总结/" class="article-date">
-            <time datetime="2017-09-28T11:22:13.918Z" itemprop="datePublished">2017-09-28</time>
-        </a>
-    </div>
-
-                
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <p></p><h2>注解类型</h2><br><h5>@Component</h5><br>可以对接口和抽象类进行注解，Dagger2框架根据注解的类名生成实体的类，新生成的类名是在原类名前加上前缀Dagger。<p></p>
-
-        </div>
-        <footer class="article-footer">
+        <p class="article-excerpt">
             
-
-
-
-    <a data-url="http://xionghaoo.github.io/2017/09/28/Dagger2 总结/" data-id="cj8q1tuni0004lwuufzlkzsix" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
+Google官方将动画分为三类，Property Animation、 View Animation、 Drawable Animation。前两个Android系统提供有相对应的动画框架，而Drawable Animation是你自己加载动画帧资源进行播放。这是针对单View动画，除了这些，Android还提供了一个Tansition的框架，它可以实现两个不同的View hierarchies
+        </p>
     </div>
 </article>
-
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
+        </div>
     
-    </section>
+
+
+    </div></section>
+
+
 
 
                         </div>
@@ -304,29 +255,6 @@
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/09/28/hexo deploy to github/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Windows平台部署Hexo到Github
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2017/09/28/Android Animation/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Android动画</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -510,13 +438,11 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://xionghaoo.github.io/2017/09/28/Dagger2 总结/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
